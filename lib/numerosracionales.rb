@@ -1,48 +1,54 @@
-require "./mcd.rb"
-
 class Numerosracionales
 
 attr_reader :numerador, :denominador
-
-def initialize(n,d)      
+	
+	def gcd(u, v)
+  	u, v = u.abs, v.abs
+  	while v != 0
+    	u, v = v, u % v
+  	end
+  	u
+	end
+	
+	def initialize(n,d)      
 	@numerador,@denominador = n, d
-end
+	end
 
-def to_s                 
-	"#{numerador} / #{denominador}"
-end
+	def to_s                 
+	"#{numerador}/#{denominador}"
+	end
 
-def mcm(a,b)  
-        aux=mcd(a,b)
+	def mcm(a,b)  
+        aux=gcd(a,b)
         (a/aux)*b
-end
+	end
 
-def simplificar(object)
-        aux= mcd(object.numerador, object.denominador)
+	def simplificar(object)
+        aux= gcd(object.numerador, object.denominador)
         Numerosracionales.new(object.numerador/aux, object.denominador/aux)
-end
+	end
 
-def suma(object) 
+	def suma(object) 
         aux=mcm(@denominador,object.denominador) 
         resultado=Numerosracionales.new((((aux*numerador)/denominador)+(aux*object.numerador)/object.denominador),aux)
         simplificar(resultado)
-end
+	end
 
-def resta(object) 
+	def resta(object) 
 	aux=mcm(@denominador,object.denominador) 
         resultado=Numerosracionales.new((((aux*numerador)/denominador)-(aux*object.numerador)/object.denominador),aux)
         simplificar(resultado)
-end
+	end
 
-def producto(object)            
+	def producto(object)            
         resultado=Numerosracionales.new(@numerador*object.numerador,@denominador*object.denominador)
         simplificar(resultado)
-end 
+	end 
 
-def division(object)
+	def division(object)
 	resultado=Numerosracionales.new(@numerador*object.denominador,@denominador*object.numerador)
         simplificar(resultado)
-end
+	end
 end
 
 
