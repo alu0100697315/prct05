@@ -15,19 +15,19 @@ def test_simple
 end
 
 def test_suma
-	assert_equal("5/2",@n1.suma(@n2).to_s)
+	assert_equal("5/2",@n1.+(@n2).to_s)
 end
 
 def test_resta
-	assert_equal("-3/2",@n1.resta(@n2).to_s)
+	assert_equal("-3/2",@n1.-(@n2).to_s)
 end
 
 def test_producto
- 	assert_equal("1/1",@n1.producto(@n2).to_s)
+ 	assert_equal("1/1",@n1.*(@n2).to_s)
 end
 
 def test_division
-	assert_equal("1/4",@n1.division(@n2).to_s)
+	assert_equal("1/4",@n1./(@n2).to_s)
 end
 
 end

@@ -28,24 +28,24 @@ attr_reader :numerador, :denominador
 	"#{numerador}/#{denominador}"
 	end
 
-	def suma(object) 
+	def +(object) 
         aux=mcm(@denominador,object.denominador) 
         resultado=Numerosracionales.new((((aux*numerador)/denominador)+(aux*object.numerador)/object.denominador),aux)
         simplificar(resultado)
 	end
 
-	def resta(object) 
+	def -(object) 
 	aux=mcm(@denominador,object.denominador) 
         resultado=Numerosracionales.new((((aux*numerador)/denominador)-(aux*object.numerador)/object.denominador),aux)
         simplificar(resultado)
 	end
 
-	def producto(object)            
+	def *(object)            
         resultado=Numerosracionales.new(@numerador*object.numerador,@denominador*object.denominador)
         simplificar(resultado)
 	end 
 
-	def division(object)
+	def /(object)
 	resultado=Numerosracionales.new(@numerador*object.denominador,@denominador*object.numerador)
         simplificar(resultado)
 	end
