@@ -9,23 +9,23 @@ attr_reader :numerador, :denominador
   	end
   	u
 	end
+
+        def mcm(a,b)
+        aux=gcd(a,b)
+        (a/aux)*b
+        end
 	
 	def initialize(n,d)      
 	@numerador,@denominador = n, d
 	end
 
-	def to_s                 
-	"#{numerador}/#{denominador}"
-	end
-
-	def mcm(a,b)  
-        aux=gcd(a,b)
-        (a/aux)*b
-	end
-
-	def simplificar(object)
+        def simplificar(object)
         aux= gcd(object.numerador, object.denominador)
         Numerosracionales.new(object.numerador/aux, object.denominador/aux)
+        end
+
+	def to_s                 
+	"#{numerador}/#{denominador}"
 	end
 
 	def suma(object) 
